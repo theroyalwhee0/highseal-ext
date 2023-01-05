@@ -1,0 +1,36 @@
+{
+  "name": "@theroyalwhee0/highseal-ext",
+  "version": "0.0.1",
+  "description": "Highseal Extension Library",
+  "main": "dist/index.js",
+  "author": "Adam Mill <hismajesty@theroyalwhee.com> (https://www.theroyalwhee.com)",
+  "license": "Apache-2.0",
+  "keywords": [
+    "highseal"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theroyalwhee0/highseal-ext.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theroyalwhee0/highseal-ext/issues"
+  },
+  "homepage": "https://github.com/theroyalwhee0/highseal-ext#readme",
+  "devDependencies": {
+    "@types/node": "18.11.9",
+    "@typescript-eslint/eslint-plugin": "5.44.0",
+    "eslint": "8.28.0",
+    "ts-node": "10.9.1",
+    "typescript": "4.9.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "rebuild": "npm run clean && tsc --build --force",
+    "clean": "mkdir -p ./dist && [ ! -z \"$(find ./dist/ -maxdepth 1 -type f -print -quit)\" ] && rm -R ./dist/*; true",
+    "watch": "npm run build && tsc --watch",
+    "lint": "eslint .",
+    "test": "true",
+    "dryrun": "npm prune && npm audit && npm run rebuild && npm run lint && npm test && npm publish --dry-run",
+    "audit": "npm audit --omit dev"
+  }
+}
